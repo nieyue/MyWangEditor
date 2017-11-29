@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3"></meta>
+    <meta name="description" content="this is my page"></meta>
+  <meta charset="UTF-8"/>
+    
+    <!--引入wangEditor.css-->
+<link rel="stylesheet" type="text/css" href="/wangEditor/css/wangEditor.min.css"/>
+
+  </head>
+  
+  <body>
+  宽：<input id="width" type="text" value=""/>
+  高：<input id="height" type="text" value=""/>
+  <textarea id="wangEditor1">
+    <p></p>
+</textarea>
+  <!--引入jquery和wangEditor.js-->   <!--注意：javascript必须放在body最后，否则可能会出现问题-->
+<script type="text/javascript" src="/resources/js/jquery2.1.js"></script>
+<script type="text/javascript" src="/wangEditor/js/wangEditor.min.js"></script>
+<!--这里引用jquery和wangEditor.js-->
+<script type="text/javascript">
+var width='';
+var height='';
+$("#width").on("change",function(){
+width=$("#width").val();
+ editor.destroy();
+   editor = new wangEditor('wangEditor1');
+  editor.config.uploadImgUrl = 'http://web1.nieyue.com:8000/img/add?width='+width+'&height='+height;//editorUpload
+    editor.config.uploadImgFileName = 'editorUpload';
+    editor.create();
+});
+$("#height").on("change",function(){
+height=$("#height").val();
+editor.destroy();
+  editor = new wangEditor('wangEditor1');
+  editor.config.uploadImgUrl = 'http://web1.nieyue.com:8000/img/add?width='+width+'&height='+height;//editorUpload
+    editor.config.uploadImgFileName = 'editorUpload';
+    editor.create();
+});
+
+    var editor = new wangEditor('wangEditor1');
+    // 上传图片
+   // editor.config.uploadImgUrl = 'http://img.newzhuan.cn/img/add?width='+width+'&height='+height;//editorUpload
+    //editor.config.uploadImgUrl = 'http://img.newzhuan.cn/img/add';//editorUpload
+    //editor.config.uploadImgUrl = 'http://img.fuwu88.cn/img/add';//editorUpload
+    //editor.config.uploadImgUrl = 'http://web1.nieyue.com:8000/img/add';//editorUpload
+    //editor.config.uploadImgUrl = 'http://web1.nieyue.com:8000/file/add';//editorUpload
+   // editor.config.uploadImgUrl = 'http://web1.nieyue.com:8000/img/add?compression=1';//editorUpload
+    editor.config.uploadImgUrl = 'http://web1.nieyue.com:8000/img/add?compression=0';//editorUpload
+   // editor.config.uploadImgUrl = 'http://web1.nieyue.com:8000/img/add?width='+width+'&height='+height;//editorUpload
+    editor.config.uploadImgFileName = 'editorUpload';
+    editor.create();
+    console.log(height)
+</script>
+  </body>
+</html>
