@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.nieyue.util.DateUtil;
 import com.nieyue.util.FileUploadUtil;
@@ -53,6 +55,7 @@ public class HtmlController {
 		System.out.println(date.toLocaleString());
 		return date.toString();
 	}
+	
 	/**
 	 * 文件增加、修改
 	 * @param editorUpload 上传参数
@@ -106,6 +109,7 @@ public class HtmlController {
 		}
 		StringBuffer url=request.getRequestURL();
 		String redirect_url = url.delete(url.length() - request.getRequestURI().length(), url.length()).toString(); 
+		//String redirect_url="http://118.123.15.27";
 		return redirect_url+imgUrl;
 	}
 	/**
